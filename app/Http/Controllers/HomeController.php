@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -23,6 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+
+        if ($user->isAdmin = 1) {
+            return redirect('admin');
+        } else {
+            return redirect('/');
+        }
+        // return view('home');
     }
 }

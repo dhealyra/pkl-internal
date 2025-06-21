@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\BackendController;
 use App\Http\Controllers\MyController;
+use App\Http\Middleware\Admin;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -44,7 +47,7 @@ Route::get('kategori/{namakategori?}', function($nama = null) {
 
 // LATIHAN OPSIONAL PARAM
 Route::get('promo/{barang?}/{kode?}', function($a=null, $b=null ) {
-    return view('promo', compact('a', 'b'));    
+    return view('dasar.promo', compact('a', 'b'));    
 });
 
 // route SISWA
@@ -55,6 +58,12 @@ Route::get('siswa/{id}', [MyController::class, 'show']);
 Route::get('siswa/{id}/edit',[MyController::class, 'edit']);
 Route::put('siswa/{id}', [MyController::class, 'update']);
 Route::delete('siswa/{id}', [MyController::class, 'destroy']);
-Auth::routes();
 
+Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// ROUTE UNTUK ADMIN
+// ATAU BACKEND
+Route::group(['prefix'=>'admin', 'middleware'=>['auth', Admin::class]], function() {
+    Route::get('/', [BackendController::class, 'index']);
+});
