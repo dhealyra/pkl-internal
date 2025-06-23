@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\MyController;
 use App\Http\Middleware\Admin;
@@ -20,7 +22,7 @@ Route::get('about', function(){
 });
 
 Route::get('profile', function() {
-    return view('profile');
+    return view('dasar.profile');
 });
 
 // route Parameter -> tanda : {}
@@ -29,7 +31,7 @@ Route::get('produk/{namaproduk}', function($a) {
 });
 
 Route::get('beli/{barang}/{jumlah}', function($a,$b) {
-    return view('beli', compact('a', 'b'));
+    return view('dasar.beli', compact('a', 'b'));
 });
 
 // route opsional parameter
@@ -66,4 +68,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // ATAU BACKEND
 Route::group(['prefix'=>'admin', 'middleware'=>['auth', Admin::class]], function() {
     Route::get('/', [BackendController::class, 'index']);
+    Route::resource('/category', CategoryController::class);
+    Route::resource('/product', ProductController::class);
 });

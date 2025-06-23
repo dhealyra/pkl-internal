@@ -8,7 +8,7 @@
 </head>
 <body>
     Barang : <b>{{ $a }}</b> <br>
-    Jumlah : <b>{{ $b }}</b>
+    Jumlah : <b>{{ $b }}</b> <br>
 
     @if ($b>100)
         Anda mendapatkan cashback sebesar 10%
