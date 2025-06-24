@@ -41,7 +41,7 @@
           </a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="#" id="get-url" aria-expanded="false">
+          <a class="sidebar-link" href="{{ route('product.index') }}" id="get-url" aria-expanded="false">
             <span>
               <i class="ti ti-package"></i>
             </span>
