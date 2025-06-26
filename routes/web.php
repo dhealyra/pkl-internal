@@ -1,13 +1,13 @@
 <?php
 
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\OrderController as BackendOrderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Middleware\Admin;
 use Illuminate\Support\Facades\Auth;
@@ -101,6 +101,6 @@ Route::group(['prefix'=>'admin', 'as'=> 'backend.', 'middleware'=>['auth', Admin
     Route::get('/', [BackendController::class, 'index']);
     Route::resource('/category', CategoryController::class);
     Route::resource('/product', ProductController::class);
-    Route::resource('/orders', OrdersController::class);
-    Route::put('orders/{id}/status', [OrdersController::class, 'updateStatus'])->name('orders.updateStatus');
+    Route::resource('/orders', BackendOrderController::class);
+    Route::put('orders/{id}/status', [BackendOrderController::class, 'updateStatus'])->name('orders.updateStatus');
 });
