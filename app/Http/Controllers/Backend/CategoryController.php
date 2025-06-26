@@ -47,7 +47,7 @@ class CategoryController extends Controller
         $category->save();
         
         toast('Data berhasil disimpan', 'success');
-        return redirect()->route('category.index');
+        return redirect()->route('backend.category.index');
     }
 
     /**
@@ -82,7 +82,7 @@ class CategoryController extends Controller
         $category->save();
         
         toast('Data berhasil disimpan', 'success');
-        return redirect()->route('category.index');
+        return redirect()->route('backend.category.index');
     }
 
     /**
@@ -94,6 +94,6 @@ class CategoryController extends Controller
         $category->delete();
         
         toast('Data berhasil dihapus', 'success');
-        return redirect()->route('category.index');
+        return redirect()->route('backend.category.index');
     }
 }

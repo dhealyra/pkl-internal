@@ -33,7 +33,7 @@
           </a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="{{ route('category.index') }}" id="get-url" aria-expanded="false">
+          <a class="sidebar-link" href="{{ route('backend.category.index') }}" id="get-url" aria-expanded="false">
             <span>
               <i class="ti ti-tags"></i>
             </span>
@@ -41,7 +41,7 @@
           </a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="{{ route('product.index') }}" id="get-url" aria-expanded="false">
+          <a class="sidebar-link" href="{{ route('backend.product.index') }}" id="get-url" aria-expanded="false">
             <span>
               <i class="ti ti-package"></i>
             </span>
