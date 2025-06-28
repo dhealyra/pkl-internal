@@ -48,6 +48,14 @@
             <span class="hide-menu">Product</span>
           </a>
         </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="{{ route('backend.orders.index') }}" id="get-url" aria-expanded="false">
+            <span>
+              <i class="ti ti-package"></i>
+            </span>
+            <span class="hide-menu">orders</span>
+          </a>
+        </li>
       </ul>
     </nav>
 
